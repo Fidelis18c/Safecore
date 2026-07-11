@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
 /* ──────────────── TAILWIND THEME ──────────────── */
@@ -17,8 +17,8 @@
   --color-brand-success: #10B981;
   --color-brand-danger: #EF4444;
 
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-heading: 'Montserrat', 'Inter', system-ui, sans-serif;
+  --font-sans: 'Hanken Grotesk', 'Inter', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Hanken Grotesk', 'Inter', system-ui, sans-serif;
 }
 
 /* ──────────────── BASE STYLES ──────────────── */
@@ -168,6 +168,15 @@
 }
 .gradient-green {
   background: linear-gradient(135deg, #2E9D42 0%, #4CBF63 100%);
+}
+
+/* ──────────────── SLOW BOUNCE (floating image) ──────────────── */
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-16px); }
+}
+.animate-bounce-slow {
+  animation: bounce-slow 2.6s ease-in-out infinite;
 }
 
 /* ──────────────── PULSE DOT FOR LIVE INDICATORS ──────────────── */

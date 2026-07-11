@@ -12,7 +12,7 @@ export default function ServiceCard({ service, index = 0 }) {
       <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-brand-green/10 to-transparent rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-125 duration-500 z-0"></div>
       
       <div className="relative z-10">
-        <div className="w-16 h-16 rounded-2xl bg-brand-green/10 flex items-center justify-center mb-8 group-hover:bg-gradient-to-br group-hover:from-brand-green group-hover:to-brand-green-dark transition-all duration-500 shadow-sm group-hover:shadow-[0_8px_20px_rgb(46,157,66,0.3)]">
+        <div className="w-16 h-16 rounded-2xl bg-brand-green/10 flex items-center justify-center mb-8 group-hover:bg-gradient-to-br group-hover:from-brand-green group-hover:to-brand-green-dark transition-all duration-500">
           <Icon className="w-8 h-8 text-brand-green group-hover:text-white transition-colors duration-500" />
         </div>
         

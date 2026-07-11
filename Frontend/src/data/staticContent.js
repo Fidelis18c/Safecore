@@ -3,6 +3,25 @@ import {
   Siren, HeartPulse, HardHat, Users
 } from 'lucide-react'
 
+// Service hero images (file names match the service they represent)
+import imgMiningSafety from '../assets/Mining Safety training.jpeg'
+import imgHazards from '../assets/HazardsImage.jpeg'
+import imgWorkplaceAudits from '../assets/Workplace audits.jpeg'
+import imgRiskAssessment from '../assets/Risk Assesment .jpeg'
+import imgEmergencyResponse from '../assets/Rescure training.jpeg'
+import imgPpeSupply from '../assets/PPE Supply and Distribution.jpeg'
+import imgFirstAid from '../assets/First aid training.jpeg'
+import imgConsultancy from '../assets/Consulting service.jpeg'
+
+// Product images
+import imgHelmet from '../assets/Head.jpeg'
+import imgBoots from '../assets/boots.jpeg'
+import imgVest from '../assets/Coat.jpeg'
+import imgGloves from '../assets/Gloves.jpeg'
+import imgEarProtection from '../assets/Ear Protection.jpeg'
+import imgMask from '../assets/Mask.jpeg'
+import imgGoggles from '../assets/Googles.jpeg'
+
 export const COMPANY = {
   name: 'SAFE Core Company Limited',
   shortName: 'SAFE Core',
@@ -31,7 +50,6 @@ export const NAV_LINKS = [
     ],
   },
   { label: 'Products', href: '/products' },
-  { label: 'Resources', href: '/resources' },
   { label: 'Contact', href: '/contact' },
   { label: 'Consultation', href: '/consultation' },
 ]
@@ -64,6 +82,7 @@ export const WHY_CHOOSE = [
 export const SERVICES = [
   {
     slug: 'mining-safety-training',
+    image: imgMiningSafety,
     icon: HardHat,
     title: 'Mining Safety Training',
     shortDesc: 'Comprehensive training programmes tailored for artisanal, small-scale, and commercial mining operations across Tanzania.',
@@ -74,6 +93,7 @@ export const SERVICES = [
   },
   {
     slug: 'hazard-awareness-programmes',
+    image: imgHazards,
     icon: AlertTriangle,
     title: 'Hazard Awareness Programmes',
     shortDesc: 'Structured programmes to help workers identify, assess, and mitigate workplace hazards before they cause harm.',
@@ -84,6 +104,7 @@ export const SERVICES = [
   },
   {
     slug: 'workplace-safety-audits',
+    image: imgWorkplaceAudits,
     icon: ClipboardCheck,
     title: 'Workplace Safety Audits',
     shortDesc: 'Thorough on-site safety audits that identify compliance gaps, unsafe practices, and areas for improvement.',
@@ -94,6 +115,7 @@ export const SERVICES = [
   },
   {
     slug: 'risk-assessment-services',
+    image: imgRiskAssessment,
     icon: Eye,
     title: 'Risk Assessment Services',
     shortDesc: 'Systematic identification and evaluation of workplace risks with practical control measures.',
@@ -104,6 +126,7 @@ export const SERVICES = [
   },
   {
     slug: 'emergency-response-training',
+    image: imgEmergencyResponse,
     icon: Siren,
     title: 'Emergency Response Training',
     shortDesc: 'Prepare your team to respond effectively to fires, chemical spills, cave-ins, and other mining emergencies.',
@@ -114,6 +137,7 @@ export const SERVICES = [
   },
   {
     slug: 'first-aid-training',
+    image: imgFirstAid,
     icon: HeartPulse,
     title: 'First Aid Training',
     shortDesc: 'Certified first aid training to ensure immediate, life-saving response when accidents occur on site.',
@@ -124,6 +148,7 @@ export const SERVICES = [
   },
   {
     slug: 'ppe-supply-distribution',
+    image: imgPpeSupply,
     icon: ShieldCheck,
     title: 'PPE Supply & Distribution',
     shortDesc: 'Quality personal protective equipment sourced and distributed to mining and industrial sites across Tanzania.',
@@ -134,6 +159,7 @@ export const SERVICES = [
   },
   {
     slug: 'safety-consultancy',
+    image: imgConsultancy,
     icon: Users,
     title: 'Safety Consultancy',
     shortDesc: 'Expert consultancy to build, improve, and maintain your organisation\'s safety management systems.',
@@ -147,6 +173,7 @@ export const SERVICES = [
 export const PRODUCTS = [
   {
     slug: 'safety-helmets',
+    image: imgHelmet,
     name: 'Safety Helmets',
     category: 'head',
     description: 'Industrial-grade safety helmets designed for mining and construction environments. Built to withstand impact, penetration, and electrical hazards.',
@@ -154,6 +181,7 @@ export const PRODUCTS = [
   },
   {
     slug: 'safety-boots',
+    image: imgBoots,
     name: 'Safety Boots',
     category: 'foot',
     description: 'Heavy-duty steel-toe safety boots with slip-resistant soles, designed for rugged mining and construction terrain.',
@@ -161,6 +189,7 @@ export const PRODUCTS = [
   },
   {
     slug: 'reflective-vests',
+    image: imgVest,
     name: 'Reflective Vests',
     category: 'body',
     description: 'High-visibility reflective vests for enhanced worker visibility in low-light conditions and active mining zones.',
@@ -168,6 +197,7 @@ export const PRODUCTS = [
   },
   {
     slug: 'safety-gloves',
+    image: imgGloves,
     name: 'Safety Gloves',
     category: 'body',
     description: 'Multi-purpose safety gloves offering protection against cuts, abrasion, and chemical exposure in mining and industrial settings.',
@@ -175,6 +205,7 @@ export const PRODUCTS = [
   },
   {
     slug: 'safety-goggles',
+    image: imgGoggles,
     name: 'Safety Goggles',
     category: 'eye_ear',
     description: 'Impact-resistant safety goggles providing full eye protection against dust, debris, and chemical splashes.',
@@ -182,6 +213,7 @@ export const PRODUCTS = [
   },
   {
     slug: 'ear-protection',
+    image: imgEarProtection,
     name: 'Ear Protection',
     category: 'eye_ear',
     description: 'Noise-reducing ear defenders and ear plugs for workers exposed to high-decibel environments in mining and construction.',
@@ -189,6 +221,7 @@ export const PRODUCTS = [
   },
   {
     slug: 'dust-masks',
+    image: imgMask,
     name: 'Dust Masks & Respirators',
     category: 'respiratory',
     description: 'FFP2/FFP3 rated dust masks and respirators for protection against fine particulate matter, silica dust, and harmful fumes.',

@@ -12,8 +12,6 @@ import About from './pages/About'
 import Services from './pages/Services'
 import ServiceDetail from './pages/ServiceDetail'
 import Products from './pages/Products'
-import Resources from './pages/Resources'
-import ResourceDetail from './pages/ResourceDetail'
 import Contact from './pages/Contact'
 import Quote from './pages/Quote'
 import Consultation from './pages/Consultation'
@@ -48,8 +46,6 @@ function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/services/:slug" element={<ServiceDetail />} />
           <Route path="/products" element={<Products />} />
-          <Route path="/resources" element={<Resources />} />
-          <Route path="/resources/:slug" element={<ResourceDetail />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/quote" element={<Quote />} />
           <Route path="/consultation" element={<Consultation />} />

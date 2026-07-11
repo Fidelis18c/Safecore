@@ -35,23 +35,18 @@ export default function HowItWorks() {
             </p>
           </div>
           
-          <div className="w-full lg:w-7/12 relative">
-            {/* Connecting Line */}
-            <div className="hidden md:block absolute top-8 left-8 bottom-8 w-0.5 bg-brand-grey-light z-0"></div>
-            
-            <div 
+          <div className="w-full lg:w-7/12">
+            <div
               ref={ref}
-              className={`flex flex-col gap-8 stagger-children ${isVisible ? 'visible' : ''}`}
+              className={`flex flex-col gap-5 stagger-children ${isVisible ? 'visible' : ''}`}
             >
               {steps.map((step, idx) => {
                 const Icon = step.icon
                 return (
-                  <div key={idx} className="relative z-10 flex gap-6 group">
-                    <div className="shrink-0 w-16 h-16 rounded-full bg-white border-4 border-brand-grey-light flex items-center justify-center group-hover:border-brand-green group-hover:bg-brand-green/10 transition-colors duration-300">
-                      <Icon className="w-6 h-6 text-brand-navy group-hover:text-brand-green transition-colors" />
-                    </div>
-                    <div className="pt-3">
-                      <h3 className="text-xl font-bold text-brand-navy mb-2">{step.title}</h3>
+                  <div key={idx} className="flex gap-4 group items-start">
+                    <Icon className="shrink-0 w-8 h-8 text-brand-green mt-0.5" />
+                    <div>
+                      <h3 className="text-xl font-bold text-brand-navy mb-1.5">{step.title}</h3>
                       <p className="text-brand-grey-mid">{step.desc}</p>
                     </div>
                   </div>

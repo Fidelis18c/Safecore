@@ -20,7 +20,7 @@ export default function Footer() {
                 <img
                   src="/safecore-logo.png"
                   alt="SAFE Core Company Limited"
-                  className="h-9 w-40"
+                  className="h-16 w-auto"
                   width="1084"
                   height="335"
                 />
@@ -43,7 +43,6 @@ export default function Footer() {
               <li><Link to="/about" onClick={scrollToTop} className="text-sm hover:text-brand-green transition-colors">About Us</Link></li>
               <li><Link to="/services" onClick={scrollToTop} className="text-sm hover:text-brand-green transition-colors">All Services</Link></li>
               <li><Link to="/products" onClick={scrollToTop} className="text-sm hover:text-brand-green transition-colors">PPE Catalogue</Link></li>
-              <li><Link to="/resources" onClick={scrollToTop} className="text-sm hover:text-brand-green transition-colors">Safety Resources</Link></li>
               <li><Link to="/contact" onClick={scrollToTop} className="text-sm hover:text-brand-green transition-colors">Contact Us</Link></li>
               <li><Link to="/consultation" onClick={scrollToTop} className="text-sm hover:text-brand-green transition-colors">Book Consultation</Link></li>
               <li><Link to="/quote" onClick={scrollToTop} className="text-sm hover:text-brand-green transition-colors">Request a Quote</Link></li>

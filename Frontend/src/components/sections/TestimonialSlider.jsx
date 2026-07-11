@@ -31,7 +31,7 @@ export default function TestimonialSlider() {
   }, [])
 
   return (
-    <section className="py-20 md:py-28 bg-brand-navy relative overflow-hidden">
+    <section className="py-14 md:py-16 bg-brand-navy relative overflow-hidden">
       {/* Background pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute -top-24 -left-24 w-96 h-96 rounded-full border-[20px] border-white"></div>
@@ -39,17 +39,18 @@ export default function TestimonialSlider() {
       </div>
 
       <div className="max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-14 relative z-10">
-        <SectionHeader 
+        <SectionHeader
           badge="Client Success"
+          plainBadge
           title="Trusted by Tanzania's Industry Leaders"
           light={true}
         />
-        
-        <div className="max-w-4xl mx-auto">
-          <div className="relative bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-8 md:p-12 shadow-2xl">
-            <Quote className="absolute top-6 right-8 w-16 h-16 text-white/10" />
-            
-            <div className="relative min-h-[220px] md:min-h-[180px] flex items-center">
+
+        <div className="max-w-3xl mx-auto">
+          <div className="relative bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-6 md:p-8 shadow-2xl">
+            <Quote className="absolute top-6 right-8 w-12 h-12 text-white/10" />
+
+            <div className="relative min-h-[180px] md:min-h-[150px] flex items-center">
               {TESTIMONIALS.map((testimonial, idx) => (
                 <div 
                   key={idx}
@@ -59,23 +60,23 @@ export default function TestimonialSlider() {
                       : 'opacity-0 translate-x-8 pointer-events-none'
                   }`}
                 >
-                  <div className="flex gap-1 mb-6">
+                  <div className="flex gap-1 mb-4">
                     {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 fill-brand-green text-brand-green" />
+                      <Star key={i} className="w-4 h-4 fill-brand-green text-brand-green" />
                     ))}
                   </div>
-                  
-                  <blockquote className="text-xl md:text-2xl text-white font-medium leading-relaxed mb-8">
+
+                  <blockquote className="text-base md:text-lg text-white font-medium leading-relaxed mb-6">
                     "{testimonial.quote}"
                   </blockquote>
-                  
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-full bg-brand-green text-white flex items-center justify-center font-bold text-lg">
+
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-brand-green text-white flex items-center justify-center font-bold">
                       {testimonial.name.charAt(0)}
                     </div>
                     <div>
-                      <div className="text-white font-bold">{testimonial.name}</div>
-                      <div className="text-white/60 text-sm">{testimonial.role}, {testimonial.company}</div>
+                      <div className="text-white font-bold text-sm">{testimonial.name}</div>
+                      <div className="text-white/60 text-xs">{testimonial.role}, {testimonial.company}</div>
                     </div>
                   </div>
                 </div>

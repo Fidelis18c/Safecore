@@ -1,5 +1,20 @@
 import { useState } from 'react'
-import { CheckCircle2, Loader2, AlertCircle } from 'lucide-react'
+import { CheckCircle2, Loader2, AlertCircle, ChevronDown } from 'lucide-react'
+
+const inputClass =
+  'w-full px-4 py-3 bg-brand-grey-light rounded-lg outline-none border border-transparent text-brand-navy placeholder:text-brand-grey-mid focus:border-brand-green focus:ring-2 focus:ring-brand-green/25 transition'
+
+const COUNTRIES = ['Tanzania', 'Kenya', 'Uganda', 'Rwanda', 'Burundi', 'DR Congo', 'Zambia', 'Other']
+const DIAL_CODES = ['+255', '+254', '+256', '+250', '+257', '+243', '+260', '+1', '+44']
+
+function Label({ htmlFor, children, required }) {
+  return (
+    <label htmlFor={htmlFor} className="block text-sm font-semibold text-brand-navy mb-2">
+      {children}
+      {required && <span className="text-brand-danger"> *</span>}
+    </label>
+  )
+}
 
 export default function ContactForm() {
   const [status, setStatus] = useState('idle')
@@ -7,14 +22,14 @@ export default function ContactForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    
+
     if (new FormData(e.target).get('honeypot')) return
-    
+
     setStatus('submitting')
     setErrorMessage('')
-    
+
     try {
-      await new Promise(resolve => setTimeout(resolve, 1200))
+      await new Promise((resolve) => setTimeout(resolve, 1200))
       setStatus('success')
     } catch (error) {
       setStatus('error')
@@ -28,7 +43,7 @@ export default function ContactForm() {
         <CheckCircle2 className="w-12 h-12 text-brand-success mb-4" />
         <h3 className="text-xl font-bold text-brand-navy mb-2">Message Sent</h3>
         <p className="text-sm text-brand-grey-mid">We've received your message and will reply shortly.</p>
-        <button 
+        <button
           onClick={() => setStatus('idle')}
           className="mt-6 text-sm font-semibold text-brand-success hover:underline"
         >
@@ -39,51 +54,85 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+    <form onSubmit={handleSubmit} className="flex flex-col gap-6">
       {status === 'error' && (
         <div className="bg-brand-danger/10 text-brand-danger p-3 rounded-lg text-sm flex items-center gap-2">
           <AlertCircle className="w-4 h-4" /> {errorMessage}
         </div>
       )}
-      
-      <input type="text" name="honeypot" className="hidden" tabIndex="-1" />
-      
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <input 
-          type="text" 
-          name="name" 
-          required 
-          placeholder="Your Name *"
-          className="px-4 py-3 bg-brand-grey-light rounded-xl outline-none focus:ring-2 focus:ring-brand-green"
-        />
-        <input 
-          type="email" 
-          name="email" 
-          required 
-          placeholder="Email Address *"
-          className="px-4 py-3 bg-brand-grey-light rounded-xl outline-none focus:ring-2 focus:ring-brand-green"
-        />
+
+      <input type="text" name="honeypot" className="hidden" tabIndex="-1" autoComplete="off" />
+
+      {/* First / Last name */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div>
+          <Label htmlFor="firstName" required>First Name</Label>
+          <input id="firstName" type="text" name="firstName" required className={inputClass} />
+        </div>
+        <div>
+          <Label htmlFor="lastName" required>Last Name</Label>
+          <input id="lastName" type="text" name="lastName" required className={inputClass} />
+        </div>
       </div>
-      
-      <input 
-        type="text" 
-        name="subject" 
-        placeholder="Subject"
-        className="px-4 py-3 bg-brand-grey-light rounded-xl outline-none focus:ring-2 focus:ring-brand-green"
-      />
-      
-      <textarea 
-        name="message" 
-        required 
-        rows="5"
-        placeholder="How can we help you? *"
-        className="px-4 py-3 bg-brand-grey-light rounded-xl outline-none focus:ring-2 focus:ring-brand-green resize-none"
-      ></textarea>
-      
-      <button 
-        type="submit" 
+
+      {/* Email */}
+      <div>
+        <Label htmlFor="email" required>Email</Label>
+        <input id="email" type="email" name="email" required className={inputClass} />
+      </div>
+
+      {/* Company / Job title */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div>
+          <Label htmlFor="companyName">Company Name</Label>
+          <input id="companyName" type="text" name="companyName" className={inputClass} />
+        </div>
+        <div>
+          <Label htmlFor="jobTitle">Job Title</Label>
+          <input id="jobTitle" type="text" name="jobTitle" className={inputClass} />
+        </div>
+      </div>
+
+      {/* Location / Phone */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div>
+          <Label htmlFor="location" required>Location</Label>
+          <div className="relative">
+            <select id="location" name="location" required defaultValue="Tanzania" className={`${inputClass} appearance-none pr-10 cursor-pointer`}>
+              {COUNTRIES.map((c) => (
+                <option key={c} value={c}>{c}</option>
+              ))}
+            </select>
+            <ChevronDown className="w-4 h-4 text-brand-grey-mid absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+          </div>
+        </div>
+        <div>
+          <Label htmlFor="phone">Phone</Label>
+          <div className="flex items-stretch bg-brand-grey-light rounded-lg border border-transparent focus-within:border-brand-green focus-within:ring-2 focus-within:ring-brand-green/25 transition">
+            <div className="relative shrink-0">
+              <select name="phoneCode" defaultValue="+255" aria-label="Country code" className="h-full appearance-none bg-transparent pl-4 pr-8 py-3 outline-none text-brand-navy font-medium cursor-pointer rounded-l-lg">
+                {DIAL_CODES.map((d) => (
+                  <option key={d} value={d}>{d}</option>
+                ))}
+              </select>
+              <ChevronDown className="w-4 h-4 text-brand-grey-mid absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+            </div>
+            <div className="w-px my-2 bg-brand-grey-mid/25"></div>
+            <input id="phone" type="tel" name="phone" placeholder="000 000 000" className="flex-1 min-w-0 bg-transparent px-4 py-3 outline-none text-brand-navy placeholder:text-brand-grey-mid" />
+          </div>
+        </div>
+      </div>
+
+      {/* Message */}
+      <div>
+        <Label htmlFor="message" required>How can we help?</Label>
+        <textarea id="message" name="message" required rows="5" className={`${inputClass} resize-none`}></textarea>
+      </div>
+
+      <button
+        type="submit"
         disabled={status === 'submitting'}
-        className="py-3.5 bg-brand-navy text-white font-bold rounded-xl hover:bg-brand-navy-light transition-colors flex items-center justify-center gap-2 disabled:opacity-70"
+        className="py-3.5 bg-brand-navy text-white font-bold rounded-lg hover:bg-brand-navy-light transition-colors flex items-center justify-center gap-2 disabled:opacity-70"
       >
         {status === 'submitting' ? <Loader2 className="w-5 h-5 animate-spin" /> : 'Send Message'}
       </button>

@@ -1,11 +1,12 @@
+import { Link } from 'react-router-dom'
 import PageMeta from '../components/seo/PageMeta'
+import PageHeroBg from '../components/ui/PageHeroBg'
+import NavlinksHero from '../assets/Navlinks Hero.jpeg'
 import SectionHeader from '../components/ui/SectionHeader'
-import BreadCrumb from '../components/ui/BreadCrumb'
-import ServiceCard from '../components/cards/ServiceCard'
 import CtaBand from '../components/sections/CtaBand'
 import { SERVICES } from '../data/staticContent'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
-import { ClipboardList, GraduationCap, ShieldCheck, TrendingUp } from 'lucide-react'
+import { ClipboardList, GraduationCap, ShieldCheck, TrendingUp, ArrowRight } from 'lucide-react'
 
 export default function Services() {
   const [ref, isVisible] = useScrollAnimation()
@@ -26,10 +27,10 @@ export default function Services() {
       
       <main id="main-content">
         {/* Page Hero */}
-        <section className="bg-brand-navy-dark pt-32 pb-20 border-b border-white/10 bg-[url('https://images.unsplash.com/photo-1581094288338-2314dddb7ece?q=80&w=2940&auto=format&fit=crop')] bg-cover bg-center bg-blend-multiply">
-          <div className="max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-14">
-            <BreadCrumb items={[{ label: 'Services' }]} />
-            <div className="mt-8 max-w-3xl">
+        <section className="relative overflow-hidden bg-brand-navy-dark pt-32 pb-20 border-b border-white/10">
+          <PageHeroBg image={NavlinksHero} />
+          <div className="max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-14 relative z-10">
+            <div className="max-w-3xl">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6">
                 Our Services
               </h1>
@@ -43,18 +44,34 @@ export default function Services() {
         {/* Services Grid */}
         <section className="py-20 bg-brand-grey-light">
           <div className="max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-14">
-            <SectionHeader 
+            <SectionHeader
               title="What We Offer"
-              subtitle="Select a service below to learn more about how we can support your specific safety needs."
               align="left"
             />
             
-            <div 
+            <div
               ref={ref}
-              className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 stagger-children ${isVisible ? 'visible' : ''}`}
+              className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12 stagger-children ${isVisible ? 'visible' : ''}`}
             >
-              {SERVICES.map((service, idx) => (
-                <ServiceCard key={service.slug} service={service} index={idx} />
+              {SERVICES.map((service) => (
+                <div key={service.slug} className="flex flex-col">
+                  <Link to={`/services/${service.slug}`} className="block overflow-hidden group">
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      loading="lazy"
+                      className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </Link>
+                  <h3 className="mt-5 text-xl font-bold text-brand-navy">{service.title}</h3>
+                  <p className="mt-2 text-sm text-brand-grey-mid leading-relaxed">{service.shortDesc}</p>
+                  <Link
+                    to={`/services/${service.slug}`}
+                    className="mt-4 inline-flex items-center gap-2 self-start text-sm font-semibold text-brand-green group"
+                  >
+                    Learn More <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                  </Link>
+                </div>
               ))}
             </div>
           </div>
@@ -77,7 +94,7 @@ export default function Services() {
                 const Icon = step.icon
                 return (
                   <div key={idx} className="relative z-10 flex flex-col items-center text-center group">
-                    <div className="w-20 h-20 rounded-full bg-white border-4 border-brand-grey-light flex items-center justify-center mb-6 group-hover:border-brand-green transition-colors shadow-sm">
+                    <div className="w-20 h-20 rounded-full bg-white border-4 border-brand-grey-light flex items-center justify-center mb-6 group-hover:border-brand-green transition-colors">
                       <Icon className="w-8 h-8 text-brand-navy group-hover:text-brand-green transition-colors" />
                     </div>
                     <div className="bg-brand-navy text-white text-xs font-bold px-3 py-1 rounded-full mb-4">Step {idx + 1}</div>
