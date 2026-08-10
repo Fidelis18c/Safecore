@@ -4,7 +4,6 @@ import { Routes, Route, useLocation } from 'react-router-dom'
 // Layout Components
 import Navbar from './components/layout/Navbar'
 import Footer from './components/layout/Footer'
-import WhatsAppFloat from './components/ui/WhatsAppFloat'
 
 // Pages
 import Home from './pages/Home'
@@ -55,7 +54,6 @@ function App() {
       </div>
 
       <Footer />
-      <WhatsAppFloat />
     </div>
   )
 }
