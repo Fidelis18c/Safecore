@@ -1,6 +1,8 @@
 import express from 'express';
 import rateLimit from 'express-rate-limit';
-import { submitQuote, submitContact, submitConsultation } from '../controllers/formController.js';
+import { submitQuote } from '../controllers/quoteController.js';
+import { submitContact } from '../controllers/contactController.js';
+import { submitConsultation } from '../controllers/consultationController.js';
 
 const router = express.Router();
 

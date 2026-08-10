@@ -4,6 +4,7 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 import dotenv from 'dotenv';
 import apiRoutes from './src/routes/api.js';
+import { testConnection } from './src/utils/db.js';
 
 dotenv.config();
 
@@ -33,6 +34,8 @@ app.use((err, req, res, next) => {
   });
 });
 
-app.listen(PORT, () => {
+app.listen(PORT, async () => {
   console.log(`Server is running on port ${PORT}`);
+  console.log(`http://localhost:${PORT}`);
+  await testConnection();
 });
