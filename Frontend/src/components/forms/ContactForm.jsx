@@ -81,16 +81,10 @@ export default function ContactForm() {
         <input id="email" type="email" name="email" required className={inputClass} />
       </div>
 
-      {/* Company / Job title */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        <div>
-          <Label htmlFor="companyName">Company Name</Label>
-          <input id="companyName" type="text" name="companyName" className={inputClass} />
-        </div>
-        <div>
-          <Label htmlFor="jobTitle">Job Title</Label>
-          <input id="jobTitle" type="text" name="jobTitle" className={inputClass} />
-        </div>
+      {/* Company */}
+      <div>
+        <Label htmlFor="companyName">Company Name</Label>
+        <input id="companyName" type="text" name="companyName" className={inputClass} />
       </div>
 
       {/* Location / Phone */}
