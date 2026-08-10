@@ -28,7 +28,7 @@ export const COMPANY = {
   tagline: 'Safety First, Productivity Always',
   phone: '+255 XXX XXX XXX',
   email: 'info@safecoretanzania.co.tz',
-  whatsapp: '255XXXXXXXXX',
+  whatsapp: '255694007665',
   address: 'Dar es Salaam, Tanzania',
   website: 'www.safecoretanzania.co.tz',
 }

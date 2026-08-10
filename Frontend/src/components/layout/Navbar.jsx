@@ -216,7 +216,7 @@ export default function Navbar({ transparent = false }) {
                 Request a Quote
               </Link>
               <a
-                href={`https://wa.me/${COMPANY.whatsapp}`}
+                href={`https://wa.me/${COMPANY.whatsapp}?text=${encodeURIComponent('Hello SAFE Core, I would like to enquire about your services.')}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full text-center px-5 py-3 bg-[#25D366] text-white font-semibold rounded-lg hover:opacity-90 transition-opacity"

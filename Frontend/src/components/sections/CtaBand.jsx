@@ -28,7 +28,7 @@ export default function CtaBand() {
               Book Free Consultation
             </Button>
             <Button 
-              href={`https://wa.me/${COMPANY.whatsapp}`}
+              href={`https://wa.me/${COMPANY.whatsapp}?text=${encodeURIComponent('Hello SAFE Core, I would like to enquire about your services.')}`}
               variant="outline" 
               size="lg" 
               icon={MessageCircle}

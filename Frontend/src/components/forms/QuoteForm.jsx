@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { CheckCircle2, Loader2, AlertCircle } from 'lucide-react'
 import { SERVICES } from '../../data/staticContent'
+import { submitQuoteForm, getErrorMessage } from '../../lib/api'
 
 export default function QuoteForm({ serviceSlug = '', onSuccess }) {
   const [status, setStatus] = useState('idle') // idle, submitting, success, error
@@ -16,14 +17,13 @@ export default function QuoteForm({ serviceSlug = '', onSuccess }) {
     setStatus('submitting')
     setErrorMessage('')
     
-    // Simulated API call (will be wired to Express backend later)
     try {
-      await new Promise(resolve => setTimeout(resolve, 1500))
+      await submitQuoteForm(Object.fromEntries(formData.entries()))
       setStatus('success')
       if (onSuccess) setTimeout(onSuccess, 2000)
     } catch (error) {
       setStatus('error')
-      setErrorMessage('Something went wrong. Please try again later or contact us directly.')
+      setErrorMessage(getErrorMessage(error, 'Something went wrong. Please try again later or contact us directly.'))
     }
   }
 

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { CheckCircle2, Loader2, AlertCircle } from 'lucide-react'
+import { submitConsultationForm, getErrorMessage } from '../../lib/api'
 
 export default function ConsultationForm() {
   const [status, setStatus] = useState('idle')
@@ -7,18 +8,19 @@ export default function ConsultationForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    
-    if (new FormData(e.target).get('honeypot')) return
-    
+
+    const formData = new FormData(e.target)
+    if (formData.get('honeypot')) return
+
     setStatus('submitting')
     setErrorMessage('')
-    
+
     try {
-      await new Promise(resolve => setTimeout(resolve, 1500))
+      await submitConsultationForm(Object.fromEntries(formData.entries()))
       setStatus('success')
     } catch (error) {
       setStatus('error')
-      setErrorMessage('Booking failed. Please try calling us instead.')
+      setErrorMessage(getErrorMessage(error, 'Booking failed. Please try calling us instead.'))
     }
   }
 

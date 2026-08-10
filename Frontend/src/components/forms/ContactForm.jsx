@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { CheckCircle2, Loader2, AlertCircle, ChevronDown } from 'lucide-react'
+import { submitContactForm, getErrorMessage } from '../../lib/api'
 
 const inputClass =
   'w-full px-4 py-3 bg-brand-grey-light rounded-lg outline-none border border-transparent text-brand-navy placeholder:text-brand-grey-mid focus:border-brand-green focus:ring-2 focus:ring-brand-green/25 transition'
@@ -23,17 +24,18 @@ export default function ContactForm() {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    if (new FormData(e.target).get('honeypot')) return
+    const formData = new FormData(e.target)
+    if (formData.get('honeypot')) return
 
     setStatus('submitting')
     setErrorMessage('')
 
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1200))
+      await submitContactForm(Object.fromEntries(formData.entries()))
       setStatus('success')
     } catch (error) {
       setStatus('error')
-      setErrorMessage('Failed to send message. Please try calling us instead.')
+      setErrorMessage(getErrorMessage(error, 'Failed to send message. Please try calling us instead.'))
     }
   }
 
