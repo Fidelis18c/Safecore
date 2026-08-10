@@ -13,20 +13,21 @@ export const submitContact = async (req, res, next) => {
     }
 
     await query(
-      `INSERT INTO contact_messages (name, email, phone, subject, message)
-       VALUES ($1, $2, $3, $4, $5)`,
-      [data.name, data.email, data.phone, data.subject, data.message]
+      `INSERT INTO contact_messages (first_name, last_name, email, company_name, location, phone_code, phone, message)
+       VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`,
+      [data.firstName, data.lastName, data.email, data.companyName, data.location, data.phoneCode, data.phone, data.message]
     );
 
     await sendNotificationEmail({
-      subject: `New Contact Message: ${data.subject || 'General Enquiry'}`,
+      subject: `New Contact Message: ${data.firstName} ${data.lastName}`,
       html: renderNotificationEmail({
         heading: 'New Contact Message',
         fields: [
-          { label: 'Name', value: data.name },
+          { label: 'Name', value: `${data.firstName} ${data.lastName}` },
           { label: 'Email', value: data.email },
-          { label: 'Phone', value: data.phone },
-          { label: 'Subject', value: data.subject },
+          { label: 'Phone', value: [data.phoneCode, data.phone].filter(Boolean).join(' ') },
+          { label: 'Company', value: data.companyName },
+          { label: 'Location', value: data.location },
           { label: 'Message', value: data.message }
         ]
       })
