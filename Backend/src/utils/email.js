@@ -13,8 +13,8 @@ export const sendNotificationEmail = async ({ subject, html }) => {
 
   try {
     const data = await resend.emails.send({
-      from: 'SAFE Core System <onboarding@resend.dev>', // Update with a verified domain
-      to: [process.env.ADMIN_EMAIL || 'info@safecoretanzania.co.tz'],
+      from: 'SAFE Core System <notifications@safecore.co.tz>',
+      to: [process.env.ADMIN_EMAIL || 'Shadi.ac.tz@gmail.com'],
       subject,
       html,
     });
