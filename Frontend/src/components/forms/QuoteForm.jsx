@@ -136,10 +136,6 @@ export default function QuoteForm({ serviceSlug = '', onSuccess }) {
           'Request Quote Now'
         )}
       </button>
-      
-      <p className="text-xs text-center text-brand-grey-mid mt-2">
-        Your information is secure. We will never spam you.
-      </p>
     </form>
   )
 }

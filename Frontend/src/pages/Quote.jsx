@@ -1,21 +1,17 @@
 import PageMeta from '../components/seo/PageMeta'
-import BreadCrumb from '../components/ui/BreadCrumb'
 import QuoteForm from '../components/forms/QuoteForm'
 
 export default function Quote() {
   return (
     <>
-      <PageMeta 
-        title="Request a Quote | SAFE Core" 
+      <PageMeta
+        title="Request a Quote | SAFE Core"
         description="Request a custom quote for mining safety training, workplace audits, or bulk PPE supply in Tanzania."
       />
-      
+
       <main id="main-content">
         <section className="bg-brand-navy-dark pt-32 pb-32 border-b border-white/10">
           <div className="max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-14 text-center">
-            <div className="flex justify-center mb-8">
-              <BreadCrumb items={[{ label: 'Request Quote' }]} />
-            </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6">
               Request a Custom Quote
             </h1>

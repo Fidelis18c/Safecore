@@ -263,9 +263,8 @@ export const TESTIMONIALS = [
 export const CORE_VALUES = [
   { title: 'Safety First', description: 'We never compromise on safety. Every decision we make prioritises the wellbeing of workers and communities.' },
   { title: 'Integrity', description: 'We operate with transparency, honesty, and accountability in everything we do.' },
-  { title: 'Excellence', description: 'We deliver the highest quality training, products, and services — exceeding expectations every time.' },
+  { title: 'Excellence', description: 'We deliver the highest quality training, products, and services exceeding expectations every time.' },
   { title: 'Local Expertise', description: 'We combine deep understanding of Tanzania\'s mining landscape with international best practices.' },
-  { title: 'Continuous Learning', description: 'We stay at the forefront of safety innovation, constantly updating our knowledge and methods.' },
 ]
 
 export const BLOG_POSTS = [

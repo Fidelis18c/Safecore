@@ -27,7 +27,12 @@ export default function ConsultationForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+    <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+      <div>
+        <h3 className="text-2xl font-bold text-white mb-2">Book Your Free Consultation</h3>
+        <p className="text-white/60 text-sm">Fill in your details and we'll reach out to confirm a time.</p>
+      </div>
+
       {status === 'success' && (
         <div className="bg-brand-success/20 text-white p-3 rounded-lg text-sm flex items-center gap-2">
           <CheckCircle2 className="w-4 h-4 text-brand-success shrink-0" /> Booking request sent. We'll contact you shortly.
@@ -38,26 +43,28 @@ export default function ConsultationForm() {
           <AlertCircle className="w-4 h-4" /> {errorMessage}
         </div>
       )}
-      
+
       <input type="text" name="honeypot" className="hidden" tabIndex="-1" />
-      
-      <input 
-        type="text" 
-        name="name" 
-        required 
-        placeholder="Full Name *"
-        className="px-4 py-3 bg-white/10 text-white placeholder:text-white/50 border border-white/20 rounded-xl outline-none focus:border-brand-green"
-      />
-      
-      <input 
-        type="tel" 
-        name="phone" 
-        required 
-        placeholder="Phone Number *"
-        className="px-4 py-3 bg-white/10 text-white placeholder:text-white/50 border border-white/20 rounded-xl outline-none focus:border-brand-green"
-      />
-      
-      <div className="grid grid-cols-2 gap-4">
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <input
+          type="text"
+          name="name"
+          required
+          placeholder="Full Name *"
+          className="px-4 py-3 bg-white/10 text-white placeholder:text-white/50 border border-white/20 rounded-xl outline-none focus:border-brand-green"
+        />
+
+        <input
+          type="tel"
+          name="phone"
+          required
+          placeholder="Phone Number *"
+          className="px-4 py-3 bg-white/10 text-white placeholder:text-white/50 border border-white/20 rounded-xl outline-none focus:border-brand-green"
+        />
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <input 
           type="date" 
           name="preferred_date" 

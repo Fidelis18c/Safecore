@@ -3,6 +3,7 @@ import PageMeta from '../components/seo/PageMeta'
 import PageHeroBg from '../components/ui/PageHeroBg'
 import NavlinksHero from '../assets/Navlinks Hero.jpeg'
 import storyImage from '../assets/Mining Safety training.jpeg'
+import leaderImage from '../assets/Leader.png'
 import SectionHeader from '../components/ui/SectionHeader'
 import CtaBand from '../components/sections/CtaBand'
 import { CORE_VALUES, SERVICES } from '../data/staticContent'
@@ -124,7 +125,7 @@ export default function About() {
             
             <div 
               ref={ref2}
-              className={`grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 stagger-children ${isVisible2 ? 'visible' : ''}`}
+              className={`grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 stagger-children ${isVisible2 ? 'visible' : ''}`}
             >
               {CORE_VALUES.map((value, idx) => (
                 <div key={idx} className="bg-brand-grey-light p-6 rounded-2xl border border-gray-100 hover:-translate-y-1 transition-transform">
@@ -170,13 +171,6 @@ export default function About() {
                 </div>
               ))}
             </div>
-
-            <p className="text-center mt-16 text-2xl md:text-3xl font-bold text-brand-navy">
-              We also offer{' '}
-              <Link to="/services/safety-consultancy" className="text-brand-green hover:underline">
-                training and consultancy services
-              </Link>
-            </p>
           </div>
         </section>
 
@@ -186,10 +180,9 @@ export default function About() {
             <div className="flex flex-col md:flex-row items-center gap-12 max-w-5xl mx-auto">
               <div className="w-full md:w-1/3">
                 <div className="aspect-square rounded-full overflow-hidden border-8 border-brand-grey-light mx-auto max-w-[300px] shadow-xl">
-                  {/* Placeholder for Founder Photo */}
-                  <img 
-                    src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop" 
-                    alt="Managing Director" 
+                  <img
+                    src={leaderImage}
+                    alt="Managing Director"
                     className="w-full h-full object-cover"
                   />
                 </div>
