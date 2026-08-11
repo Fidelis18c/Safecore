@@ -48,7 +48,7 @@ export default function Contact() {
                   </div>
                   <h3 className="text-lg font-bold text-brand-navy mb-1">Call Us</h3>
                   <p className="text-brand-grey-mid mb-2">Mon-Fri from 8am to 5pm</p>
-                  <a href={`tel:${COMPANY.phone}`} className="text-lg font-bold text-brand-navy hover:text-brand-green transition-colors">
+                  <a href={`tel:${COMPANY.phoneHref}`} className="text-lg font-bold text-brand-navy hover:text-brand-green transition-colors">
                     {COMPANY.phone}
                   </a>
                 </div>

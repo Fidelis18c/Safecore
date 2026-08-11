@@ -26,9 +26,10 @@ export const COMPANY = {
   name: 'SAFE Core Company Limited',
   shortName: 'SAFE Core',
   tagline: 'Safety First, Productivity Always',
-  phone: '+255 694 007 665',
-  email: 'info@safecoretanzania.co.tz',
-  whatsapp: '255694007665',
+  phone: '0628 613 874/0764 803 874',
+  phoneHref: '0628613874',
+  email: 'Shadi.ac.tz@gmail.com',
+  whatsapp: '255628613874',
   address: 'Dar es Salaam, Tanzania',
   website: 'www.safecoretanzania.co.tz',
 }
