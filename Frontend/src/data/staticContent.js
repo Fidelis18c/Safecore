@@ -26,7 +26,7 @@ export const COMPANY = {
   name: 'SAFE Core Company Limited',
   shortName: 'SAFE Core',
   tagline: 'Safety First, Productivity Always',
-  phone: '+255 XXX XXX XXX',
+  phone: '+255 694 007 665',
   email: 'info@safecoretanzania.co.tz',
   whatsapp: '255694007665',
   address: 'Dar es Salaam, Tanzania',
