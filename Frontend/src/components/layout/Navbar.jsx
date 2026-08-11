@@ -138,14 +138,16 @@ export default function Navbar({ transparent = false }) {
             </div>
           </div>
         </div>
+      </nav>
 
-        {/* Mobile menu overlay */}
-        <div
-          className={`lg:hidden fixed inset-0 top-16 z-40 bg-brand-navy transition-all duration-300 ${
-            mobileOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
-          }`}
-        >
-          <div className="h-full overflow-y-auto px-4 py-6 flex flex-col gap-1">
+      {/* Mobile menu overlay (rendered outside <nav> — its backdrop-blur creates a new
+          containing block that would otherwise clip this fixed-position overlay) */}
+      <div
+        className={`lg:hidden fixed inset-0 top-16 z-40 bg-brand-navy transition-all duration-300 ${
+          mobileOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+        }`}
+      >
+        <div className="h-full overflow-y-auto px-4 py-6 flex flex-col gap-1">
             {NAV_LINKS.map((link) =>
               link.children ? (
                 <div key={link.label}>
@@ -218,7 +220,6 @@ export default function Navbar({ transparent = false }) {
             </div>
           </div>
         </div>
-      </nav>
     </>
   )
 }
