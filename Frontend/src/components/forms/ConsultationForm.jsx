@@ -17,27 +17,22 @@ export default function ConsultationForm() {
 
     try {
       await submitConsultationForm(Object.fromEntries(formData.entries()))
+      e.target.reset()
       setStatus('success')
+      setTimeout(() => setStatus('idle'), 5000)
     } catch (error) {
       setStatus('error')
       setErrorMessage(getErrorMessage(error, 'Booking failed. Please try calling us instead.'))
     }
   }
 
-  if (status === 'success') {
-    return (
-      <div className="bg-brand-navy p-8 rounded-2xl text-center text-white">
-        <CheckCircle2 className="w-12 h-12 text-brand-success mx-auto mb-4" />
-        <h3 className="text-2xl font-bold mb-2">Booking Request Sent</h3>
-        <p className="text-white/70 text-sm">
-          Our team will contact you shortly to confirm the exact time for your consultation.
-        </p>
-      </div>
-    )
-  }
-
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+      {status === 'success' && (
+        <div className="bg-brand-success/20 text-white p-3 rounded-lg text-sm flex items-center gap-2">
+          <CheckCircle2 className="w-4 h-4 text-brand-success shrink-0" /> Booking request sent. We'll contact you shortly.
+        </div>
+      )}
       {status === 'error' && (
         <div className="bg-brand-danger/10 text-brand-danger p-3 rounded-lg text-sm flex items-center gap-2">
           <AlertCircle className="w-4 h-4" /> {errorMessage}

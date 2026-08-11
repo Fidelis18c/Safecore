@@ -32,31 +32,22 @@ export default function ContactForm() {
 
     try {
       await submitContactForm(Object.fromEntries(formData.entries()))
+      e.target.reset()
       setStatus('success')
+      setTimeout(() => setStatus('idle'), 5000)
     } catch (error) {
       setStatus('error')
       setErrorMessage(getErrorMessage(error, 'Failed to send message. Please try calling us instead.'))
     }
   }
 
-  if (status === 'success') {
-    return (
-      <div className="bg-brand-success/10 border border-brand-success/20 rounded-2xl p-8 text-center flex flex-col items-center justify-center h-full min-h-[300px]">
-        <CheckCircle2 className="w-12 h-12 text-brand-success mb-4" />
-        <h3 className="text-xl font-bold text-brand-navy mb-2">Message Sent</h3>
-        <p className="text-sm text-brand-grey-mid">We've received your message and will reply shortly.</p>
-        <button
-          onClick={() => setStatus('idle')}
-          className="mt-6 text-sm font-semibold text-brand-success hover:underline"
-        >
-          Send another message
-        </button>
-      </div>
-    )
-  }
-
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+      {status === 'success' && (
+        <div className="bg-brand-success/10 text-brand-success p-3 rounded-lg text-sm flex items-center gap-2">
+          <CheckCircle2 className="w-4 h-4" /> Message sent successfully. We'll reply shortly.
+        </div>
+      )}
       {status === 'error' && (
         <div className="bg-brand-danger/10 text-brand-danger p-3 rounded-lg text-sm flex items-center gap-2">
           <AlertCircle className="w-4 h-4" /> {errorMessage}

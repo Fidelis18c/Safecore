@@ -19,7 +19,9 @@ export default function QuoteForm({ serviceSlug = '', onSuccess }) {
     
     try {
       await submitQuoteForm(Object.fromEntries(formData.entries()))
+      e.target.reset()
       setStatus('success')
+      setTimeout(() => setStatus('idle'), 5000)
       if (onSuccess) setTimeout(onSuccess, 2000)
     } catch (error) {
       setStatus('error')
@@ -27,22 +29,14 @@ export default function QuoteForm({ serviceSlug = '', onSuccess }) {
     }
   }
 
-  if (status === 'success') {
-    return (
-      <div className="bg-brand-success/10 border border-brand-success/20 rounded-2xl p-8 text-center flex flex-col items-center justify-center h-full min-h-[300px]">
-        <div className="w-16 h-16 bg-brand-success/20 rounded-full flex items-center justify-center mb-4">
-          <CheckCircle2 className="w-8 h-8 text-brand-success" />
-        </div>
-        <h3 className="text-2xl font-bold text-brand-navy mb-2">Quote Request Sent!</h3>
-        <p className="text-brand-grey-mid">
-          Thank you for reaching out to SAFE Core. Our team will review your requirements and get back to you within 24 hours.
-        </p>
-      </div>
-    )
-  }
-
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+      {status === 'success' && (
+        <div className="bg-brand-success/10 text-brand-success p-4 rounded-xl flex items-start gap-3 text-sm">
+          <CheckCircle2 className="w-5 h-5 shrink-0" />
+          <p>Quote request sent! Our team will get back to you within 24 hours.</p>
+        </div>
+      )}
       {status === 'error' && (
         <div className="bg-brand-danger/10 text-brand-danger p-4 rounded-xl flex items-start gap-3 text-sm">
           <AlertCircle className="w-5 h-5 shrink-0" />
