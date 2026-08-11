@@ -14,7 +14,7 @@ export const sendNotificationEmail = async ({ subject, html }) => {
   try {
     const data = await resend.emails.send({
       from: 'SAFE Core System <notifications@safecore.co.tz>',
-      to: [process.env.ADMIN_EMAIL || 'kiluluj12@gmail.com'],
+      to: [process.env.ADMIN_EMAIL || 'Shadi.ac.tz@gmail.com'],
       subject,
       html,
     });
