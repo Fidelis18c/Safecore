@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Menu, X, ChevronDown, ArrowRight } from 'lucide-react'
-import { NAV_LINKS, COMPANY } from '../../data/staticContent'
+import { NAV_LINKS } from '../../data/staticContent'
 
 export default function Navbar({ transparent = false }) {
   const [scrolled, setScrolled] = useState(false)
@@ -215,14 +215,6 @@ export default function Navbar({ transparent = false }) {
               >
                 Request a Quote
               </Link>
-              <a
-                href={`https://wa.me/${COMPANY.whatsapp}?text=${encodeURIComponent('Hello SAFE Core, I would like to enquire about your services.')}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full text-center px-5 py-3 bg-[#25D366] text-white font-semibold rounded-lg hover:opacity-90 transition-opacity"
-              >
-                WhatsApp Us
-              </a>
             </div>
           </div>
         </div>

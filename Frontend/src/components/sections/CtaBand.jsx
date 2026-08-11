@@ -1,6 +1,4 @@
-import { ArrowRight, MessageCircle } from 'lucide-react'
 import Button from '../ui/Button'
-import { COMPANY } from '../../data/staticContent'
 
 export default function CtaBand() {
   return (
@@ -26,15 +24,6 @@ export default function CtaBand() {
           <div className="w-full md:w-2/5 flex flex-col sm:flex-row gap-4 justify-center md:justify-end">
             <Button to="/consultation" variant="white" size="lg" className="w-full sm:w-auto">
               Book Free Consultation
-            </Button>
-            <Button 
-              href={`https://wa.me/${COMPANY.whatsapp}?text=${encodeURIComponent('Hello SAFE Core, I would like to enquire about your services.')}`}
-              variant="outline" 
-              size="lg" 
-              icon={MessageCircle}
-              className="w-full sm:w-auto hover:bg-white hover:text-brand-green border-white text-white"
-            >
-              WhatsApp Us
             </Button>
           </div>
         </div>

@@ -89,16 +89,6 @@ export default function Footer() {
                 <a href={`mailto:${COMPANY.email}`} className="text-sm hover:text-white transition-colors">{COMPANY.email}</a>
               </li>
             </ul>
-            <div className="mt-8">
-              <a 
-                href={`https://wa.me/${COMPANY.whatsapp}?text=${encodeURIComponent('Hello SAFE Core, I would like to enquire about your services.')}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-full px-4 py-2.5 rounded-lg border border-[#25D366] text-[#25D366] hover:bg-[#25D366] hover:text-white transition-colors text-sm font-semibold"
-              >
-                Chat on WhatsApp
-              </a>
-            </div>
           </div>
         </div>
 
