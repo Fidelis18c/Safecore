@@ -52,7 +52,7 @@ export default function ConsultationForm() {
           name="name"
           required
           placeholder="Full Name *"
-          className="px-4 py-3 bg-white/10 text-white placeholder:text-white/50 border border-white/20 rounded-xl outline-none focus:border-brand-green"
+          className="px-4 py-3 bg-white/10 text-white placeholder:text-white/50 placeholder:text-sm border border-white/20 rounded-xl outline-none focus:border-brand-green"
         />
 
         <input
@@ -60,7 +60,7 @@ export default function ConsultationForm() {
           name="phone"
           required
           placeholder="Phone Number *"
-          className="px-4 py-3 bg-white/10 text-white placeholder:text-white/50 border border-white/20 rounded-xl outline-none focus:border-brand-green"
+          className="px-4 py-3 bg-white/10 text-white placeholder:text-white/50 placeholder:text-sm border border-white/20 rounded-xl outline-none focus:border-brand-green"
         />
       </div>
 

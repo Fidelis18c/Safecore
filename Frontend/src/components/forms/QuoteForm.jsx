@@ -54,7 +54,7 @@ export default function QuoteForm({ serviceSlug = '', onSuccess }) {
             id="name" 
             name="name" 
             required 
-            className="px-4 py-3 bg-brand-grey-light border border-transparent focus:border-brand-green focus:bg-white rounded-xl outline-none transition-all"
+            className="px-4 py-3 bg-brand-grey-light border border-transparent focus:border-brand-green focus:bg-white rounded-xl outline-none transition-all placeholder:text-sm"
             placeholder="John Mwanga"
           />
         </div>
@@ -65,7 +65,7 @@ export default function QuoteForm({ serviceSlug = '', onSuccess }) {
             type="text" 
             id="company" 
             name="company" 
-            className="px-4 py-3 bg-brand-grey-light border border-transparent focus:border-brand-green focus:bg-white rounded-xl outline-none transition-all"
+            className="px-4 py-3 bg-brand-grey-light border border-transparent focus:border-brand-green focus:bg-white rounded-xl outline-none transition-all placeholder:text-sm"
             placeholder="TanzGold Mining Ltd"
           />
         </div>
@@ -79,7 +79,7 @@ export default function QuoteForm({ serviceSlug = '', onSuccess }) {
             id="phone" 
             name="phone" 
             required 
-            className="px-4 py-3 bg-brand-grey-light border border-transparent focus:border-brand-green focus:bg-white rounded-xl outline-none transition-all"
+            className="px-4 py-3 bg-brand-grey-light border border-transparent focus:border-brand-green focus:bg-white rounded-xl outline-none transition-all placeholder:text-sm"
             placeholder="+255 7XX XXX XXX"
           />
         </div>
@@ -90,7 +90,7 @@ export default function QuoteForm({ serviceSlug = '', onSuccess }) {
             type="email" 
             id="email" 
             name="email" 
-            className="px-4 py-3 bg-brand-grey-light border border-transparent focus:border-brand-green focus:bg-white rounded-xl outline-none transition-all"
+            className="px-4 py-3 bg-brand-grey-light border border-transparent focus:border-brand-green focus:bg-white rounded-xl outline-none transition-all placeholder:text-sm"
             placeholder="john@example.com"
           />
         </div>
@@ -119,7 +119,7 @@ export default function QuoteForm({ serviceSlug = '', onSuccess }) {
           name="message" 
           required 
           rows="4"
-          className="px-4 py-3 bg-brand-grey-light border border-transparent focus:border-brand-green focus:bg-white rounded-xl outline-none transition-all resize-none"
+          className="px-4 py-3 bg-brand-grey-light border border-transparent focus:border-brand-green focus:bg-white rounded-xl outline-none transition-all resize-none placeholder:text-sm"
           placeholder="Please describe your needs, number of workers, location, etc."
         ></textarea>
       </div>

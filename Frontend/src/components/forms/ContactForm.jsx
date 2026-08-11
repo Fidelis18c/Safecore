@@ -3,7 +3,7 @@ import { Loader2, AlertCircle, ChevronDown } from 'lucide-react'
 import { submitContactForm, getErrorMessage } from '../../lib/api'
 
 const inputClass =
-  'w-full px-4 py-3 bg-brand-grey-light rounded-lg outline-none border border-transparent text-brand-navy placeholder:text-brand-grey-mid focus:border-brand-green focus:ring-2 focus:ring-brand-green/25 transition'
+  'w-full px-4 py-3 bg-brand-grey-light rounded-lg outline-none border border-transparent text-brand-navy placeholder:text-brand-grey-mid placeholder:text-sm focus:border-brand-green focus:ring-2 focus:ring-brand-green/25 transition'
 
 const COUNTRIES = ['Tanzania', 'Kenya', 'Uganda', 'Rwanda', 'Burundi', 'DR Congo', 'Zambia', 'Other']
 const DIAL_CODES = ['+255', '+254', '+256', '+250', '+257', '+243', '+260', '+1', '+44']
@@ -105,7 +105,7 @@ export default function ContactForm() {
               <ChevronDown className="w-4 h-4 text-brand-grey-mid absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
             </div>
             <div className="w-px my-2 bg-brand-grey-mid/25"></div>
-            <input id="phone" type="tel" name="phone" placeholder="000 000 000" className="flex-1 min-w-0 bg-transparent px-4 py-3 outline-none text-brand-navy placeholder:text-brand-grey-mid" />
+            <input id="phone" type="tel" name="phone" placeholder="000 000 000" className="flex-1 min-w-0 bg-transparent px-4 py-3 outline-none text-brand-navy placeholder:text-brand-grey-mid placeholder:text-sm" />
           </div>
         </div>
       </div>
