@@ -22,6 +22,7 @@ export const submitContact = async (req, res, next) => {
       subject: `New Contact Message: ${data.firstName} ${data.lastName}`,
       html: renderNotificationEmail({
         heading: 'New Contact Message',
+        subtitle: 'Submitted via the Contact Us form',
         fields: [
           { label: 'Name', value: `${data.firstName} ${data.lastName}` },
           { label: 'Email', value: data.email },

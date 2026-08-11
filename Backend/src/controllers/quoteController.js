@@ -1,6 +1,7 @@
 import { z } from 'zod';
 import { query } from '../utils/db.js';
 import { sendNotificationEmail } from '../utils/email.js';
+import { renderNotificationEmail } from '../utils/emailTemplate.js';
 import { quoteSchema } from '../schemas/quoteSchema.js';
 
 export const submitQuote = async (req, res, next) => {
@@ -20,15 +21,18 @@ export const submitQuote = async (req, res, next) => {
 
     await sendNotificationEmail({
       subject: `New Quote Request: ${data.name} - ${data.company || 'No Company'}`,
-      html: `
-        <h2>New Quote Request</h2>
-        <p><strong>Name:</strong> ${data.name}</p>
-        <p><strong>Company:</strong> ${data.company}</p>
-        <p><strong>Phone:</strong> ${data.phone}</p>
-        <p><strong>Email:</strong> ${data.email}</p>
-        <p><strong>Service:</strong> ${data.service}</p>
-        <p><strong>Message:</strong> ${data.message}</p>
-      `
+      html: renderNotificationEmail({
+        heading: 'New Quote Request',
+        subtitle: 'Submitted via the Request a Quote form',
+        fields: [
+          { label: 'Name', value: data.name },
+          { label: 'Company', value: data.company },
+          { label: 'Phone', value: data.phone },
+          { label: 'Email', value: data.email },
+          { label: 'Service', value: data.service },
+          { label: 'Message', value: data.message }
+        ]
+      })
     });
 
     res.status(201).json({ success: true, message: 'Quote request received. We will contact you within 24 hours.' });

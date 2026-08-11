@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { CheckCircle2, Loader2, AlertCircle, ChevronDown } from 'lucide-react'
+import { Loader2, AlertCircle, ChevronDown } from 'lucide-react'
 import { submitContactForm, getErrorMessage } from '../../lib/api'
 
 const inputClass =
@@ -44,8 +44,8 @@ export default function ContactForm() {
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-6">
       {status === 'success' && (
-        <div className="bg-brand-success/10 text-brand-success p-3 rounded-lg text-sm flex items-center gap-2">
-          <CheckCircle2 className="w-4 h-4" /> Message sent successfully. We'll reply shortly.
+        <div className="bg-brand-grey-light text-brand-navy p-3 rounded-lg text-sm">
+          Message sent successfully.
         </div>
       )}
       {status === 'error' && (

@@ -22,6 +22,7 @@ export const submitConsultation = async (req, res, next) => {
       subject: `New Consultation Booking: ${data.name}`,
       html: renderNotificationEmail({
         heading: 'New Consultation Booking',
+        subtitle: 'Submitted via the Book a Free Consultation form',
         fields: [
           { label: 'Name', value: data.name },
           { label: 'Company', value: data.company },

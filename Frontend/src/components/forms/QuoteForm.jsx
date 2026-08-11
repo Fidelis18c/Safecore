@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { CheckCircle2, Loader2, AlertCircle } from 'lucide-react'
+import { Loader2, AlertCircle } from 'lucide-react'
 import { SERVICES } from '../../data/staticContent'
 import { submitQuoteForm, getErrorMessage } from '../../lib/api'
 
@@ -32,9 +32,8 @@ export default function QuoteForm({ serviceSlug = '', onSuccess }) {
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-5">
       {status === 'success' && (
-        <div className="bg-brand-success/10 text-brand-success p-4 rounded-xl flex items-start gap-3 text-sm">
-          <CheckCircle2 className="w-5 h-5 shrink-0" />
-          <p>Quote request sent! Our team will get back to you within 24 hours.</p>
+        <div className="bg-brand-grey-light text-brand-navy p-4 rounded-xl text-sm">
+          Message sent successfully.
         </div>
       )}
       {status === 'error' && (

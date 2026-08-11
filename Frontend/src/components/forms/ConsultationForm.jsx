@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { CheckCircle2, Loader2, AlertCircle } from 'lucide-react'
+import { Loader2, AlertCircle } from 'lucide-react'
 import { submitConsultationForm, getErrorMessage } from '../../lib/api'
 
 export default function ConsultationForm() {
@@ -34,8 +34,8 @@ export default function ConsultationForm() {
       </div>
 
       {status === 'success' && (
-        <div className="bg-brand-success/20 text-white p-3 rounded-lg text-sm flex items-center gap-2">
-          <CheckCircle2 className="w-4 h-4 text-brand-success shrink-0" /> Booking request sent. We'll contact you shortly.
+        <div className="bg-white/10 text-white p-3 rounded-lg text-sm">
+          Message sent successfully.
         </div>
       )}
       {status === 'error' && (
