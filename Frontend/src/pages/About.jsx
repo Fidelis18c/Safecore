@@ -182,14 +182,14 @@ export default function About() {
                 <div className="aspect-square rounded-full overflow-hidden border-8 border-brand-grey-light mx-auto max-w-[300px] shadow-xl">
                   <img
                     src={leaderImage}
-                    alt="Managing Director"
+                    alt="Shedrack Frank Samwi, Managing Director"
                     className="w-full h-full object-cover"
                   />
                 </div>
               </div>
               <div className="w-full md:w-2/3 text-center md:text-left">
-                <h2 className="text-3xl font-extrabold text-brand-navy mb-2">Managing Director</h2>
-                <h3 className="text-xl text-brand-grey-mid mb-6">Expert Safety Consultant</h3>
+                <h2 className="text-3xl font-extrabold text-brand-navy mb-2">Shedrack Frank Samwi</h2>
+                <h3 className="text-xl text-brand-grey-mid mb-6">Managing Director &middot; BSc Metallurgy and Mineral Processing Engineer</h3>
                 <p className="text-brand-grey-dark leading-relaxed mb-6">
                   With over a decade of experience in occupational health and safety across East Africa, our leadership brings unparalleled expertise to SAFE Core. Holding advanced certifications in safety management and risk assessment, they have successfully led compliance turnarounds for major mining operations in Tanzania.
                 </p>
